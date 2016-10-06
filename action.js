@@ -9,11 +9,8 @@ upload.file = {
     var data = new FormData();
     $.each( upload.file.files_a, function( key, value ){
 	data.append( key, value );
-	alert(key);
     });
-	console.log(data);
     if (data.getAll('0').length>0){
-	console.log(upload.file.files_a);
      $.ajax({
 	url: '/work1/add/load_file_to_server',
 	type: 'POST',
@@ -190,7 +187,7 @@ function form_answer(id_parent) {
 	});
 
  if ( typeof(grecaptcha) !== "undefined") {
-	core_paptcha.onloadc();
+	core_captcha.onloadc();
  }
   
 $('.submit.button').click(function( event ){

@@ -36,9 +36,18 @@ o_show.show = {
 		$('li#menu_ul_' + value.parent_id).append(ul);
 	  }
 	})
+
+	var $code = $("code");
+		$code.replaceWith(function () {
+		codee=$('<code/>').html(this.innerHTML);
+		return $('<pre/>').append(codee);
+	});
+
         $(document).ready(function() {
          $('code').each(function(i, block) {
-            hljs.highlightBlock(block);
+		new_text= ($(block).text()).replace(/(\<\/br\>)/g,"\r\n");
+		$(block).html(new_text);
+		hljs.highlightBlock(block,null,true);
          });
         });
 

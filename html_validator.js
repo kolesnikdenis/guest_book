@@ -85,7 +85,7 @@ function check_input_tag(str){
   var result,result1;
   var text="";
   var lastindex=0;
-  str=str.replace(/\n/g, "</br>"); // insert br 
+  str=str.replace(/\n/g, "</br>\n"); // insert br 
   str= strip_tags(str,"a i strong code br");
   
   while (result1 = link.exec(str)  ) {

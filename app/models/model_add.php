@@ -57,7 +57,7 @@ public function test_close_tags($str) {
 public function check_input_tag($str) {
 	$model = new model_add();
 
-	$str=str_replace(array("\r\n", "\n", "\r"), "<br/>",$str);
+	$str=str_replace(array("\r\n", "\n", "\r"), "<br/>\n",$str);
 	$out = strip_tags($str,"<a><i><strong><code><br>");
 	$t = preg_match_all('/<a .*?>*?<\/a>/i', $out, $out1);
 	$last_index_sub=0;
@@ -171,7 +171,7 @@ public function check_input_tag($str) {
 				$model->imgresize($in_file,$tmp_file,320,230,75);
 				rename("/tmp/tmp_resize",$in_file);
 			};
-		}else { unlink($in_file); }
+		}
 
 		return $data;
 		}	
