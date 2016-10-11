@@ -7,9 +7,6 @@ class controller {
 	}
 
 	
-	public function  connect_db() { 
-		return $db = new PDO('mysql:host=localhost;dbname=bbb', 'bbb', 'bbb');
-	}
 	public function action_index(){
 		$model = new model_index();
 		$view = new view();

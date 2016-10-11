@@ -7,10 +7,6 @@ class Route {
 	}
 
 	public static function Start() {
-		$registry = new Registry;
-		$db = new PDO('mysql:host=localhost;dbname=bbb', 'bbb', 'bbb');
-		$registry->set('db', $db);
-
 		$controller_name ='index';
 		$action_name = 'index';
 		$action_parametrs = array();
@@ -42,7 +38,7 @@ class Route {
 
 		
 		$controller = new $controller_name();
-		$controller->$action_name($registry);
+		$controller->$action_name();
 
 
 		

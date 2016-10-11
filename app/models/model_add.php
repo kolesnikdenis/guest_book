@@ -100,7 +100,7 @@ public function check_input_tag($str) {
 				'date_time' => $date
 			);
 			$db = $this->DB();
-			$SQL="INSERT INTO `bbb`.`comments` ( `parent_id`, `date_time`, `user`, `mail`, `homepage`, `body`, `file`) VALUES ".
+			$SQL="INSERT INTO `comments` ( `parent_id`, `date_time`, `user`, `mail`, `homepage`, `body`, `file`) VALUES ".
 					"(:parent_id, :date_time, :user, :mail, :homepage, :body, :file);";
 		
 			$query=$db->prepare($SQL);
