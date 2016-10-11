@@ -14,7 +14,6 @@
         $response = json_decode(file_get_contents($url), true);
 
     if ($response['success'] != false) {
-        #@mail($email_to, $subject, $finalMsg);
         echo 'ok';
     } else {
         echo 'not ok';

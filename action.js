@@ -12,7 +12,7 @@ upload.file = {
     });
     if (data.getAll('0').length>0){
      $.ajax({
-	url: '/work1/add/load_file_to_server',
+	url: 'add/load_file_to_server',
 	type: 'POST',
 	data: data,
 	cache: false,
@@ -58,7 +58,7 @@ upload.comment = {
 	  var check_body = check_input_tag( $("#text_body").val() ) ;
 	  $.ajax({
 		type: 'post',
-		url: 'http://kolesnikdenis.com/work1/add/add_comment',
+		url: 'add/add_comment',
 		data: {
 			'parent':$("#parent").val(),
 			'user': $("#user").val(),
@@ -127,7 +127,7 @@ captcha_id: 0,
  check_capcha: function(){
 		$.ajax({
 			type: "POST",
-			url: "/work1/c.php",
+			url: "c.php",
 			data: "&g-recaptcha-response=" + grecaptcha.getResponse(core_captcha.captcha_id)
 		}).done(function(status) {
 				grecaptcha.reset(core_captcha.captcha_id);
@@ -182,7 +182,7 @@ function form_answer(id_parent) {
 
  form.append('<div class="load_file_status"></div>');
  sel_div.append(form);
- $.get("/work1/app/views/btn_control.html",function (data) {
+ $.get("app/views/btn_control.html",function (data) {
   		$('#txt_btn').append(data);
 	});
 

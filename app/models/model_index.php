@@ -9,9 +9,9 @@ class model_index extends model {
 	}
 
 	public function show_json(){ 
-		$c= new controller();
-		$db= $c->connect_db();
+		$db = $this->DB();
 		$query=$db->prepare("select * from comments ");
+
 		$query->execute();
 		$items=array();
 		for($i=0; $row = $query->fetch(); $i++){
@@ -25,8 +25,7 @@ class model_index extends model {
 
 
 	public function show_file(){
-		$c= new controller();
-		$db =$c->connect_db();
+		$db = $this->DB();
 		$route_array = explode('/', $_SERVER['REQUEST_URI']);
 		$query=$db->prepare("select * from comments where id='".$route_array[4]."'");
 		$query->execute();
@@ -41,15 +40,14 @@ class model_index extends model {
 				$text=substr($text,0,strlen($text)-1);
 				return array('txt',$text);
 			} else { 
-				return array('img','<img src="/work1/index/show_img/'.$route_array[4].'">');
+				return array('img','<img src="'.conf_home_dir.'index/show_img/'.$route_array[4].'">');
 			}
 		
                 }
 	}
 
 	public function show_img(){
-		$c= new controller();
-		$db =$c->connect_db();
+		$db = $this->DB();
 		$route_array = explode('/', $_SERVER['REQUEST_URI']);
 		$query=$db->prepare("select * from comments where id='".$route_array[4]."'");
 		$query->execute();
@@ -76,13 +74,14 @@ class model_index extends model {
 			
 		}
 	}
+/*
 	public function show_comments(){
-		$c=new controller();
-		$db = $c->connect_db();
+		$db = $this->DB();
 		$query=$db->prepare("select * from comments ORDER BY `comments`.`id` ASC");
 		$query->execute();
 		$comments="";
 		for($i=0; $row = $query->fetch(); $i++){
+*/
 		 /* $comments.="<div id=comment>".
 			"<div id=u_line> <a href='mailto:".$row['mail']."'>".$row['user']."</a> id ". $row['id']." parent: ".$row['parent_id']."</div>" 
 			."<div id=body>". $row['body']."</div>"
@@ -90,9 +89,10 @@ class model_index extends model {
 			."</div>"
 			."<div id=write_answer".$row['id']."></div>";
 		 */
+/*
 		}
 		//return $comments."</ul>"; #$row = $query->fetch();
 }
-
+*/
 }
 	

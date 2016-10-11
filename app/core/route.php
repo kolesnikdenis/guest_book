@@ -36,7 +36,7 @@ class Route {
 			include W_PATH.'/app/controllers/'.$controller_name.'.php';
 		}
 		else {
-			header('Location: /work1/404');
+			header('Location: '.conf_home_dir.'404');
 			exit;
 		}
 

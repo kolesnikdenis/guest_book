@@ -1,10 +1,22 @@
 <?php
 
 class model {
-	function __construct() {
+	private static $db = NULL;
+	public $db1;
+	
+
+	public function DB() {
+		if(NULL === self::$db){
+			$conf = parse_ini_file("config.ini", true);
+			self::$db = new PDO('mysql:host='.$conf["mysql"]["host"].';dbname='.$conf["mysql"]["db"], $conf["mysql"]["user"], $conf["mysql"]["pass"] );
+		}
+		return self::$db;
+	}
+
+	public function __construct() {
 
 	}
-	
+
 }
 
 Class Registry Implements ArrayAccess {
@@ -52,3 +64,5 @@ Class Registry Implements ArrayAccess {
         }
 
 }
+
+

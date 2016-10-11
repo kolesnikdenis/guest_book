@@ -1,6 +1,5 @@
 <center> <h1>Просмотр файла</h1>
-<a href="/work1/">возврат к комментариям</a><br>
-
+<a href="<?php echo conf_home_dir;?>">возврат к комментариям</a><br>
 <?php echo "тип файла:".$data[0]."<br>"; 
 if ($data[0] !="txt") { echo " Сам файл:<br>".$data[1];} ?>
 <style>

@@ -1,6 +1,4 @@
 <div id=write_answer0></div>
-<!-- <form action="/work1/add/add_com" method=post onsubmit="alert("test");"> -->
-<?php //echo $data; ?>
 <div style="text-align: center;" id=link_page></div>
 <div id=link_control>
 <a href=# id="link_sort_mail" onclick="o_show.sort.pre_sort('mail',1);"><div id=arrow></div>сортировка по mail</a> -

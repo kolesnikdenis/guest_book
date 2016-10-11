@@ -99,9 +99,7 @@ public function check_input_tag($str) {
 				'file' => $file,
 				'date_time' => $date
 			);
-		$c= new controller();
-		$db =$c->connect_db();
-
+			$db = $this->DB();
 			$SQL="INSERT INTO `bbb`.`comments` ( `parent_id`, `date_time`, `user`, `mail`, `homepage`, `body`, `file`) VALUES ".
 					"(:parent_id, :date_time, :user, :mail, :homepage, :body, :file);";
 		
@@ -153,7 +151,7 @@ public function check_input_tag($str) {
 		 $file=$_FILES[0];
 		 $error = false;
 		 $files = array();
-		 $uploaddir="/var/www/html/work1/upload/";
+		 $uploaddir=W_PATH."/upload/";
 		 if( ! is_dir( $uploaddir ) ) mkdir( $uploaddir, 0777 );
 			if( move_uploaded_file( $file['tmp_name'], $uploaddir . basename($file['name']) ) ){
 				$files[] = realpath( $uploaddir . $file['name'] );
